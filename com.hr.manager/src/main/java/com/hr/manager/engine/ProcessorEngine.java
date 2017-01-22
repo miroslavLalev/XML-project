@@ -21,9 +21,8 @@ public class ProcessorEngine {
 	}
 
 	public void process() {
-		Transformer transformer = createTransformer();
-
 		try {
+			Transformer transformer = createTransformer();
 			transformer.transform(new StreamSource(new File(getResourcePath(inputResource))),
 					new StreamResult(new File(outputUrl)));
 		} catch (TransformerException e) {
@@ -31,13 +30,9 @@ public class ProcessorEngine {
 		}
 	}
 
-	private Transformer createTransformer() {
-		try {
-			return TransformerFactory.newInstance()
-					.newTransformer(new StreamSource(new File(getResourcePath(XSLT_RESOURCE))));
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+	private Transformer createTransformer() throws TransformerException {
+		return TransformerFactory.newInstance()
+				.newTransformer(new StreamSource(new File(getResourcePath(XSLT_RESOURCE))));
 	}
 
 	private String getResourcePath(String resource) {
