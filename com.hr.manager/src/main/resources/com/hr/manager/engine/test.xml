@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<names>
-	<name>Pesho</name>
-	<name>Gosho</name>
-</names>
+<persons>
+	<person>
+		<name>Pesho</name>
+		<id>1</id>
+	</person>
+	<person>
+		<name>Gosho</name>
+		<id>2</id>
+	</person>
+</persons>
