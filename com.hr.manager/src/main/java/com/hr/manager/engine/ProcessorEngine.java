@@ -7,7 +7,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
@@ -16,7 +15,6 @@ import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
@@ -37,7 +35,7 @@ public class ProcessorEngine {
 
 	public void process() throws IOException {
 		File tempFile = new File(TEMP_FILE);
-		try(BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(outputUrl)))) {
+		try (BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(outputUrl)))) {
 			Transformer transformer = createTransformer(new File(getResourcePath(XSLT_RESOURCE)));
 			transformer.transform(new StreamSource(new File(getResourcePath(inputResource))),
 					new StreamResult(tempFile));

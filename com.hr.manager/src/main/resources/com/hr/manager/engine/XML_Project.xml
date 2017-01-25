@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE firm [
+	<!ELEMENT firm (employees, groups)>
+	<!ELEMENT employees (employee+)>
+	<!ELEMENT employee (name, salary, competences)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT salary (#PCDATA)>
+	<!ELEMENT competences (#PCDATA)>
+	<!ELEMENT groups (groupsRank, groupsEducation, groupsContract)>
+	<!ELEMENT groupsRank (senior, junior, intern)>
+	<!ELEMENT senior EMPTY>
+	<!ELEMENT junior EMPTY>
+	<!ELEMENT intern EMPTY>
+	<!ELEMENT groupsEducation (bachelor, masters)>
+	<!ELEMENT bachelor EMPTY>
+	<!ELEMENT masters EMPTY>
+	<!ELEMENT groupsContract (partTime, fullTime)>
+	<!ELEMENT partTime EMPTY>
+	<!ELEMENT fullTime EMPTY>
+	<!ATTLIST employee employeeID ID #REQUIRED>
+	<!ATTLIST senior employeeIDs IDREFS #REQUIRED>
+	<!ATTLIST junior employeeIDs IDREFS #REQUIRED>
+	<!ATTLIST intern employeeIDs IDREFS #REQUIRED>
+	<!ATTLIST bachelor employeeIDs IDREFS #REQUIRED>
+	<!ATTLIST masters employeeIDs IDREFS #REQUIRED>
+	<!ATTLIST partTime employeeIDs IDREFS #REQUIRED>
+	<!ATTLIST fullTime employeeIDs IDREFS #REQUIRED>
+]>
+<firm>
+	<employees>
+		<employee employeeID="x1">
+			<name>Milko Kunev</name>
+			<salary>2000lv</salary>
+			<competences>System administrator, Linux, Network Security</competences>
+		</employee>
+		<employee employeeID="x2">
+			<name>Miroslav Lalev</name>
+			<salary>2000lv</salary>
+			<competences>Java, Algorithms, Data Structures, Design Patterns</competences>
+		</employee>
+		<employee employeeID="x3">
+			<name>Gergana Ivanova</name>
+			<salary>800lv</salary>
+			<competences>Business analyst</competences>
+		</employee>
+		<employee employeeID="x4">
+			<name>Mariq Todorova</name>
+			<salary>500lv</salary>
+			<competences>None</competences>
+		</employee>
+		<employee employeeID="x5">
+			<name>Ivan Ivanov</name>
+			<salary>600lv</salary>
+			<competences>Account manager</competences>
+		</employee>
+	</employees>
+	<groups>
+		<groupsRank>
+			<senior employeeIDs="x1 x2"></senior>
+			<junior employeeIDs="x3"></junior>
+			<intern employeeIDs="x4 x5"></intern>
+		</groupsRank>
+		<groupsEducation>
+			<bachelor employeeIDs="x3 x4 x5"></bachelor>
+			<masters employeeIDs="x1 x2"></masters>
+		</groupsEducation>
+		<groupsContract>
+			<partTime employeeIDs="x4 x5"></partTime>
+			<fullTime employeeIDs="x1 x2 x3"></fullTime>
+		</groupsContract>
+	</groups>
+</firm>

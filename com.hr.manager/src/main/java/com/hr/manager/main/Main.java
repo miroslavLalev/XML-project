@@ -7,7 +7,7 @@ import com.hr.manager.engine.ProcessorEngine;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		ProcessorEngine engine = new ProcessorEngine("test.xml", "test.pdf");
+		ProcessorEngine engine = new ProcessorEngine("XML_Project.xml", "test.pdf");
 		engine.process();
 	}
 }
